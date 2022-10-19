@@ -13,8 +13,12 @@
     }
 
     // responsive btn
-    @include respond(tab-port) {
+    @include respond(tablet-portrait) {
         min-width: 300px;
+    }
+
+    @include respond(phone){
+        min-width: 280px;
     }
 }
 
@@ -31,13 +35,13 @@
         }
     }
 
-    @if $breakpoint == tab-port {
+    @if $breakpoint == tablet-portrait {
         @media (max-width: 900px) {
             @content;
         }
     }
 
-    @if $breakpoint == tab-land {
+    @if $breakpoint == tablet-landscape {
         @media (max-width: 1200px) {
             @content;
         }

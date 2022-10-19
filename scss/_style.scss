@@ -20,7 +20,7 @@
         }
 
         // responsive single card
-        @include respond(tab-port) {
+        @include respond(tablet-portrait) {
             margin-right: unset;
         }
     }
@@ -30,7 +30,7 @@
     }
 
     // responsive display card
-    @include respond(tab-port) {
+    @include respond(tablet-portrait) {
         flex-direction: column;
     }
 }

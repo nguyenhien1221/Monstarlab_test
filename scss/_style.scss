@@ -1,0 +1,232 @@
+.container {
+    @include flex_center;
+    background-color: $background_color;
+    max-width: 100%;
+    padding: 20px 20px;
+
+    .card-wrapper {
+        margin-right: 42px;
+        margin-top: 80px;
+
+        .inner-card {
+            background-color: $white_text;
+            max-width: 362px;
+            max-height: 768px;
+            transition: 0.3s;
+        }
+
+        &:hover {
+            box-shadow: 0px 0px 10px rgb(82, 82, 82);
+        }
+
+        // responsive single card
+        @include respond(tab-port) {
+            margin-right: unset;
+        }
+    }
+
+    .card3-wrapper {
+        margin-right: unset;
+    }
+
+    // responsive display card
+    @include respond(tab-port) {
+        flex-direction: column;
+    }
+}
+
+// banner of card
+.banner {
+    @include flex_center;
+    position: relative;
+    flex-direction: column;
+
+    .price {
+        @include flex_center;
+        background-color: $white_text;
+        border-radius: 50%;
+        flex-direction: column;
+        min-width: 12rem;
+        min-height: 12rem;
+        top: -60px;
+        position: absolute;
+        z-index: 1;
+
+        h3 {
+            color: $blue_btn;
+            font-size: 3.2rem;
+            font-weight: 300;
+        }
+        p {
+            color: $gray_price;
+            font-size: 1.6rem;
+            font-weight: 400;
+        }
+    }
+
+    // card 2 price
+    .second-price {
+        @extend .price;
+        h3 {
+            color: $pink_price_text;
+        }
+    }
+
+    // card 3 price
+    .third-price {
+        @extend .price;
+        h3 {
+            color: $green_btn;
+        }
+    }
+
+    .background {
+        @include flex_center;
+        height: 272px;
+        overflow: hidden;
+
+        &-img {
+            filter: brightness(50%);
+            height: 100%;
+            position: relative;
+            transform: scale(1.05);
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        &-text {
+            color: $white_text;
+            font-size: 3.6rem;
+            font-weight: 300;
+            position: absolute;
+            z-index: 1;
+        }
+
+        &-sub-text {
+            color: $gray_text2;
+            font-size: 1.8rem;
+        }
+
+        // card 2 title on background
+        &-title {
+            position: absolute;
+            text-align: center;
+
+            &-text1 {
+                @extend .background-text;
+                position: relative;
+            }
+
+            &-text2 {
+                color: $gray-sub-text;
+                font-size: 1.4rem;
+                position: relative;
+                z-index: 1;
+            }
+        }
+
+        // card 2 new mark
+        &-newmark {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            z-index: 1;
+
+            &-text {
+                color: $white_text;
+                font-size: 12px;
+                font-weight: 700;
+                position: absolute;
+                top: 28px;
+                left: 18px;
+            }
+        }
+
+        &-img:hover {
+            transform: scale(1.25);
+        }
+    }
+}
+// detail of card
+.detail {
+    @include flex_center;
+    flex-direction: column;
+    justify-content: unset;
+
+    &-title {
+        margin: 25px 11px;
+        text-align: center;
+
+        h4 {
+            color: $gray_card_sub_title;
+            font-size: 2.4rem;
+            font-weight: 300;
+        }
+
+        p {
+            color: $gray_card_sub_title2;
+            font-size: 1.4rem;
+            font-weight: 400;
+        }
+    }
+
+    &-description {
+        width: 100%;
+
+        .list {
+            list-style: none;
+            text-align: center;
+
+            &-item {
+                @include flex_center;
+                color: $gray_card_sub_title;
+                font-size: 1.6rem;
+                font-weight: 400;
+                height: 50px;
+
+                &-pri {
+                    background-color: $gray_list_background;
+                }
+            }
+        }
+    }
+
+    // card btn
+    &-control {
+        @include flex_center;
+        min-height: 150px;
+
+        // card 1 btn
+        .pri-btn {
+            @include default_btn(transparent, $blue_btn);
+            border-color: $blue_btn;
+
+            &:hover {
+                @include default_btn($blue_btn, $white_text);
+                transition: 0.3s;
+            }
+        }
+
+        // card 2 btn
+        .second-btn {
+            @include default_btn($purple_btn, $white_text);
+            border-color: $purple_btn;
+
+            &:hover {
+                @include default_btn($purple_btn_hover, $white_text);
+                transition: 0.3s;
+            }
+        }
+
+        // card 3 btn
+        .third-btn {
+            @include default_btn(transparent, $green_btn);
+            border-color: $green_btn;
+
+            &:hover {
+                @include default_btn($green_btn_hover, $white_text);
+                transition: 0.3s;
+            }
+        }
+    }
+}
